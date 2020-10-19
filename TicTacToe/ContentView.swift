@@ -36,6 +36,7 @@ struct Home: View {
                 ForEach(0..<9,id: \.self){index in
                     
                     Color.white
+                        .frame(width: getWidth(), height: getWidth())
                 }
             }
             .padding()
@@ -47,7 +48,7 @@ struct Home: View {
         // Horizontal padding = 30
         // Spacing = 30
         let width = UIScreen.main.bounds.width - (30 + 30)
-        return width / 3 
+        return width / 3
     }
 }
 
