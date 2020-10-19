@@ -29,7 +29,7 @@ struct Home: View {
         
         VStack {
             
-            //Gridview to play the game
+            // Gridview to play the game
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(),spacing:15), count: 3),spacing:15){
                 
@@ -38,7 +38,16 @@ struct Home: View {
                     Color.white
                 }
             }
+            .padding()
         }
+    }
+    
+    // Calculating width
+    func getWidth()->CGFloat{
+        // Horizontal padding = 30
+        // Spacing = 30
+        let width = UIScreen.main.bounds.width - (30 + 30)
+        return width / 3 
     }
 }
 
