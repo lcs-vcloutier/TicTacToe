@@ -11,6 +11,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Home()
+                .navigationTitle("Tic Tac Toe")
+                .preferredColorScheme(.dark)
         }
     }
 }
@@ -22,13 +24,16 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Home: View {
+    
     var body: some View {
+        
         VStack {
+            
             //Gridview to play the game
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(),spacing:15), count: 3), spacing:15){
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(),spacing:15), count: 3),spacing:15){
                 
-                ForEach(0..<9,id: \.self)){index in
+                ForEach(0..<9,id: \.self){index in
                     
                     Color.white
                 }
