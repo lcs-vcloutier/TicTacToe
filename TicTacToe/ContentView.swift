@@ -27,7 +27,7 @@ struct Home: View {
     // Moves
     @State var moves = Array(repeating: "", count: 9)
     // Indentify current player
-    @State var isPlaying = false
+    @State var isPlaying = true
     var body: some View {
         
         VStack {
@@ -47,15 +47,17 @@ struct Home: View {
                             .fontWeight(.heavy)
                             .foregroundColor(.black)
                     }
-                        .frame(width: getWidth(), height: getWidth())
-                        .cornerRadius(15)
+                    .frame(width: getWidth(), height: getWidth())
+                    .cornerRadius(15)
                     // On tap add move
                     .onTapGesture(perform: {
                         
                         withAnimation(Animation.easeIn(duration: 0.5)){
-                            moves[index] = isPlaying ? "X" : "0"
-                            // Updating player
-                            isPlaying.toggle()
+                            if moves[index] == ""{
+                                moves[index] = isPlaying ? "X" : "0"
+                                // Updating player
+                                isPlaying.toggle()
+                            }
                         }
                     })
                 }
