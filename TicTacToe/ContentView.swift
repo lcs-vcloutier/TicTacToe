@@ -28,6 +28,9 @@ struct Home: View {
     @State var moves = Array(repeating: "", count: 9)
     // Indentify current player
     @State var isPlaying = true
+    @State var gameOver = false
+    @State var msg = ""
+    
     var body: some View {
         
         VStack {
@@ -84,6 +87,29 @@ struct Home: View {
         // Spacing = 30
         let width = UIScreen.main.bounds.width - (30 + 30)
         return width / 3
+    }
+    
+    //Check for winner
+    func checkWinner() {
+        if checkMoves(player: "X"){
+            //promoting alert view...
+        }
+        if checkMoves(player: "0"){
+            
+        }
+    }
+    func checkMoves(player: String)->Bool{
+        
+        //Horizontal Moves
+        for i in stride(from: 0, through: 9, by: 3){
+            
+            if moves[1] == player && moves[i + 1] == player && moves[i + 2] == player{
+                
+                return true
+            }
+        }
+        
+        return false
     }
 }
 
