@@ -40,15 +40,27 @@ struct Home: View {
                     
                     ZStack{
                         
-                        Color.white
+                        //Flip animation
                         
+                        Color.blue
+                        
+                        Color.white
+                            .opacity(moves[index] == "" ? 1 : 0)
                         Text(moves[index])
                             .font(.system(size: 55))
                             .fontWeight(.heavy)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
+                            .opacity(moves[index] != "" ? 1 : 0)
                     }
                     .frame(width: getWidth(), height: getWidth())
                     .cornerRadius(15)
+                    .rotation3DEffect(
+                        .init(degrees: moves[index] != "" ? 180 : 0),
+                        axis: /*@START_MENU_TOKEN@*/(x: 0.0, y: 1.0, z: 0.0)/*@END_MENU_TOKEN@*/,
+                        anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/,
+                        anchorZ: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/,
+                        perspective: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/
+                    )
                     // On tap add move
                     .onTapGesture(perform: {
                         
