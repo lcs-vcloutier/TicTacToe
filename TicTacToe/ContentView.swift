@@ -24,7 +24,10 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Home: View {
-    
+    // Moves
+    @State var moves = Array(repeating: "", count: 9)
+    // Indentify current player
+    @State var isPlaying = false
     var body: some View {
         
         VStack {
@@ -35,8 +38,17 @@ struct Home: View {
                 
                 ForEach(0..<9,id: \.self){index in
                     
-                    Color.white
+                    ZStack{
+                        
+                        Color.white
+                        
+                        Text(moves[index])
+                            .font(.system(size: 55))
+                            .fontWeight(.heavy)
+                            .foregroundColor(.black)
+                    }
                         .frame(width: getWidth(), height: getWidth())
+                        .cornerRadius(15)
                 }
             }
             .padding()
