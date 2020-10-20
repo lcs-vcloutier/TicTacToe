@@ -49,6 +49,15 @@ struct Home: View {
                     }
                         .frame(width: getWidth(), height: getWidth())
                         .cornerRadius(15)
+                    // On tap add move
+                    .onTapGesture(perform: {
+                        
+                        withAnimation(Animation.easeIn(duration: 0.5)){
+                            moves[index] = isPlaying ? "X" : "0"
+                            // Updating player
+                            isPlaying.toggle()
+                        }
+                    })
                 }
             }
             .padding()
