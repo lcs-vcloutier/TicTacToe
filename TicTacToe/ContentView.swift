@@ -140,6 +140,14 @@ struct Home: View {
         }
         
         // Diagonal Moves
+        if moves[0] == player && moves[4] == player && moves[8] == player{
+            
+            return true
+        }
+        if moves[2] == player && moves[4] == player && moves[6] == player{
+            
+            return true
+        }
         
         return false
     }
