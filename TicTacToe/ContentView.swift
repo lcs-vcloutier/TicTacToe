@@ -79,6 +79,20 @@ struct Home: View {
             }
             .padding()
         }
+        // On change of moves check for winner
+        .onChange(of: moves, perform: { value in
+            checkWinner()
+        })
+        .alert(isPresented: $gameOver, content: {
+            Alert(title: Text("Winner"), message:Text(msg), dismissButton: .destructive(Text("Play Again"), action: {
+                // Reset all data
+                withAnimation(Animation.easeIn(duration: 0.5)){
+                    moves.removeAll()
+                    moves = Array(repeating: "", count: 9)
+                    isPlaying = true
+                }
+            }))
+        })
     }
     
     // Calculating width
@@ -92,9 +106,16 @@ struct Home: View {
     //Check for winner
     func checkWinner() {
         if checkMoves(player: "X"){
-            //promoting alert view...
+            
+            // Alert view
+            msg = "Player X Won"
+            gameOver.toggle()
         }
         if checkMoves(player: "0"){
+            
+            // Alert view
+            msg = "Player 0 Won"
+            gameOver.toggle()
             
         }
     }
