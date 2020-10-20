@@ -118,6 +118,16 @@ struct Home: View {
             gameOver.toggle()
             
         }
+        else {
+            // Check for tie
+            let status = moves.contains { (value) -> Bool in
+                return value == ""
+            }
+            if !status {
+                msg = "Tie Game"
+                gameOver.toggle()
+            }
+        }
     }
     func checkMoves(player: String)->Bool{
         
