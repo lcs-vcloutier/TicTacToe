@@ -25,7 +25,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct Home: View {
     // Moves
-    @State var moves = Array(repeating: "", count: 9)
+    @State var moves : [String] = Array(repeating: "", count: 9)
     // Indentify current player
     @State var isPlaying = true
     @State var gameOver = false
