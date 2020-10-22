@@ -132,7 +132,7 @@ struct Home: View {
     func checkMoves(player: String)->Bool{
         
         // Horizontal Moves
-        for i in stride(from: 0, through: 9, by: 3){
+        for i in stride(from: 0, through: 8, by: 3){
             
             if moves[1] == player && moves[i + 1] == player && moves[i + 2] == player{
                 
